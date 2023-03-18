@@ -5,7 +5,7 @@
             <!-- 头部logo -->
             <img class="logoBox" src="../../assets/logo.jpeg" alt="">
             <!-- 文字 -->
-            <div class="txt">归途の博客</div>
+            <div class="txt">追风の博客</div>
             <!-- 输入框 -->
             <div class="ipt_box">
                 <i class="iconfont icon-chengzi"></i>

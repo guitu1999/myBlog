@@ -1,25 +1,24 @@
 <template>
     <div class="box">
-        <el-menu :default-active="activeIndex" background-color="transparen" class="el-menu-demo" mode="horizontal"
-            @select="handleSelect">
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-menu-item index="1">处理中心</el-menu-item>
-            <el-menu-item index="1">处理中心</el-menu-item>
-        </el-menu>
+        <TopBar></TopBar>
         <!-- 轮播图 -->
-        <el-carousel :interval="5000" type="card" arrow="always">
+        <el-carousel class="swpbox" :interval="5000" type="card" arrow="always">
             <el-carousel-item v-for="(item, index) in swiList" :key="index">
+                <div class="text">{{ item.txt }}</div>
+
                 <el-image class="swpimg" :src="item.src" alt="">
                 </el-image>
-                <div>{{ item.txt }}</div>
             </el-carousel-item>
         </el-carousel>
     </div>
 </template>
 
 <script>
+import TopBar from '../../components/topBar.vue'
 export default {
+    components: {
+        TopBar
+    },
     data() {
         return {
             activeIndex: '1',
@@ -76,5 +75,16 @@ export default {
     background-color: #d3dce6;
 }
 
-.swpimg {}
+.swpbox {
+    position: relative;
+}
+
+.swpbox .text {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    z-index: 222;
+    transform: translateX(-50%);
+    font-size: 25px;
+}
 </style>
