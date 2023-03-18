@@ -3,7 +3,7 @@
         <!-- 左侧音乐图片 -->
         <div class="left">
             <i class="iconfont icon-zanting"></i>
-            <el-image class="img" fit="cover" :src="imgSrc"></el-image>
+            <el-image class="img" fit="cover" :src="imgObj.picUrl"></el-image>
         </div>
         <!-- 右侧切换 -->
         <div class="right">
@@ -13,8 +13,8 @@
             </div>
             <!-- 信息 -->
             <div class="info">
-                <div style="font-size: 24px;color: #aaa;">醒着醉</div>
-                <div style="color: #666;">马良</div>
+                <div style="font-size: 16px;color: #aaa;">{{ imgObj.name }}</div>
+                <div style="color: #666;">{{ imgObj.song.artists[0].name }}</div>
             </div>
             <!-- 下一首 -->
             <div class="next">
@@ -22,14 +22,42 @@
 
             </div>
         </div>
+        <audio ref="audio" preload="true" :src="`https://music.163.com/song/media/outer/url?id=${imgObj.id}.mp3`"></audio>
     </div>
 </template>
 
 <script>
+// import axios from 'axios'
+import { newMusic, MusicSrc } from '@/api/music'
 export default {
     data() {
         return {
+            imgList: [],
+            imgObj: {},
             imgSrc: require('../assets/logo.jpeg')
+        }
+    },
+    created() {
+        this.getMusic()
+    },
+    methods: {
+        async getMusic() {
+            try {
+                let data = await newMusic()
+                console.log('打印歌曲', data);
+                this.imgList = data.data.result
+                this.imgObj = data.data.result[0]
+                console.log('打印这个id', this.imgObj.id);
+                this.getUrl(this.imgObj.id)
+
+                // this.$refs.audio.play() // 调用audio标签的内置方法play可以继续播放声音
+            } catch (err) {
+                console.log('出错了', err);
+            }
+        },
+        async getUrl(id) {
+            let res = await MusicSrc(id)
+            console.log('打印res', res);
         }
     }
 }
