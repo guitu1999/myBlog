@@ -10,18 +10,27 @@
                 </el-image>
             </el-carousel-item>
         </el-carousel>
+        <!-- 音乐 -->
+        <div class="music" style="width: 500px;height: 60px;">
+            <Music>
+
+            </Music>
+        </div>
+
     </div>
 </template>
 
 <script>
 import TopBar from '../../components/topBar.vue'
+import Music from '../../components/music.vue'
 export default {
     components: {
-        TopBar
+        TopBar,
+        Music
     },
     data() {
         return {
-            activeIndex: '1',
+
             swiList: [
                 {
                     src: require('../../assets/swiper1.jpeg'),
@@ -40,9 +49,7 @@ export default {
         }
     },
     methods: {
-        handleSelect() {
 
-        }
     }
 }
 </script>
@@ -51,12 +58,20 @@ export default {
 .box {
     box-sizing: border-box;
     width: 100%;
-    min-height: 100vh;
+    height: 100vh;
     background-image: url(../../assets/home.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
     padding: 10px;
+}
+
+.music {
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .el-carousel__item h3 {

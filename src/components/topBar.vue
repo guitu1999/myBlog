@@ -26,7 +26,16 @@
 
 <script>
 export default {
+    data() {
+        return {
+            activeIndex: '1',
+        }
+    },
+    methods: {
+        handleSelect() {
 
+        }
+    }
 }
 </script>
 
