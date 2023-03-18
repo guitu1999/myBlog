@@ -1,15 +1,14 @@
 <template>
   <div>
-  页面111
+    <!-- 设置挂载点 -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  export default {
-    
-  }
+export default {
+
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
