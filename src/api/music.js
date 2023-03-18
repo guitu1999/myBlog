@@ -8,7 +8,7 @@ export const newMusic = () => request({
 
 //获取音乐地址 1217823
 export const MusicSrc = (id) => request({
-    url: `/Apis/song/detail?ids=${id}`,
+    url: `/music/song/detail?ids=${id}`,
     method: 'GET',
 })
 
