@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
     data() {
         return {
@@ -32,6 +33,9 @@ export default {
                 password: '',//密码
             }
         }
+    },
+    mounted() {
+
     },
     methods: {
         //登录按钮
@@ -48,6 +52,7 @@ export default {
     margin: 0;
     padding: 0;
 }
+
 
 .login_box {
     display: flex;
