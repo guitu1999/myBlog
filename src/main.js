@@ -8,7 +8,8 @@ Vue.config.productionTip = false
 import '@/icons/icon.css'
 //引入element
 import Element from 'element-ui'
-
+//引入css
+import '@/styles/common.css'
 import "element-ui/lib/theme-chalk/index.css"
 
 Vue.use(Element)
